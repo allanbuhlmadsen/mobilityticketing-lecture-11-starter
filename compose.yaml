@@ -4,6 +4,8 @@ services:
   object-store:
     image: pgsty/silo:RELEASE.2026-11-12T00-00-00Z
     command: ["server", "/data"]
+    ports:
+      - "127.0.0.1:19011:9000"
     environment:
       MINIO_ROOT_USER: mobilityadmin
       MINIO_ROOT_PASSWORD: mobility-lab-only-change-me
@@ -12,6 +14,8 @@ services:
 
   postgres:
     image: postgres:17
+    ports:
+      - "127.0.0.1:25411:5432"
     environment:
       POSTGRES_USER: mobility
       POSTGRES_PASSWORD: mobility-lab-only-change-me
